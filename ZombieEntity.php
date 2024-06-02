@@ -125,7 +125,7 @@ class ZombieEntity extends Zombie {
             $neighborPos = $node->add($offset->x, $offset->y, $offset->z);
             $neighborNode = Node::fromVector3($neighborPos);
             $cost = 0;
-            if ($this->getDataWorld()->couldStandAt($neighborPos, $cost) && $this->getDataWorld()->isAreaClear($neighborPos)) {
+            if ($this->getDataWorld()->couldStandAt($neighborPos, $cost) && $this->getDataWorld()->isAreaEmpty($neighborPos)) {
                 $neighbors[] = $neighborNode;
             } else {
                 if($offset == $offsets[array_key_last($offsets)]) error_log("Invalid neiighbor at: " . $neighborPos->__toString());
